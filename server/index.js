@@ -4,6 +4,10 @@ require("dotenv").config();
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import passport from "passport";
+
+// config
+import googleAuthConfig from "./config/google.config"
 
 // API
 import Auth from "./API/Auth/index";
@@ -18,6 +22,11 @@ shimato.use(express.json());
 shimato.use(express.urlencoded({extended: false}));
 shimato.use(helmet());
 shimato.use(cors());
+shimato.use(passport.initialize());
+shimato.use(passport.session());
+
+// passport configuration
+googleAuthConfig(passport);
 
 // For application routes
 // localhost:5000/auth/signup

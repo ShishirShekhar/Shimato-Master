@@ -6,11 +6,11 @@ const FoodSchema = new mongoose.Schema({
     isVeg: {type: Boolean, required: true},
     isEgg: {type: Boolean, required: true},
     category: {type: String, required: true},
-    photos: {type: mongoose.Types.ObjectId, ref: "Image"},
+    photos: {type: mongoose.Types.ObjectId, ref: "Images"},
     price: {type: Number, default: 150, required: true},
-    addOns: [{type: mongoose.Type.ObjectId, ref: "Food"}],
+    addOns: [{type: mongoose.Types.ObjectId, ref: "Foods"}],
     restaurant: {
-        type: mongoose.Type.ObjectId, 
+        type: mongoose.Types.ObjectId, 
         ref: "Restaurants", required: true
     }
 },
@@ -18,4 +18,4 @@ const FoodSchema = new mongoose.Schema({
     timestamps: true
 });
 
-export const FoodModel = mongoose.model("Foodz", FoodSchema)
+export const FoodModel = mongoose.model("Foods", FoodSchema)
