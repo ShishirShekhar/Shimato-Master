@@ -11,6 +11,9 @@ import googleAuthConfig from "./config/google.config"
 
 // API
 import Auth from "./API/Auth/index";
+import Restaurant from "./API/Restaurant/index"
+import Food from "./API/Food/index"
+import Menu from "./API/Menu/index"
 
 // Database connection
 import ConnectDB from "./database/connection";
@@ -31,6 +34,9 @@ googleAuthConfig(passport);
 // For application routes
 // localhost:5000/auth/signup
 shimato.use("/auth", Auth);
+shimato.use("/restaurant", Restaurant)
+shimato.use("/food", Food)
+shimato.use("/menu", Menu)
 
 shimato.get("/", (req, res) => {
     res.json({message: "Server is running!!!"});
